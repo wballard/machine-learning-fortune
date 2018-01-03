@@ -27,7 +27,7 @@ setup(
         'numpy>=1.13.1',
         'tqdm',
         'docopt',
-        'scikit-learn>=0.18.1'
+        'scikit-learn>=0.19.1'
     ],
     classifiers=[
         'Intended Audience :: Developers',

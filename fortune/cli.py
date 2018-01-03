@@ -26,6 +26,6 @@ def execute():
     '''
     arguments = docopt.docopt(HELPSTRING)
     if arguments['train']:
-        train.execute(arguments['quotes'])
+        train.execute(arguments['<quotes>'])
     else:
         generate.execute()
