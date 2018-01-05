@@ -19,9 +19,9 @@ def execute(quote_file_name):
     ### make up a 'special' end of quote word
     with open(quote_file_name, encoding='utf8') as quote_file:
         quotes = list(map(lambda x: x.strip() + ' XXX', quote_file))
-        vectorizer = model.WordLanguageModelVectorizer(8)
-        learn = model.EmbeddedRecurrentLanguageModel(vectorizer, hidden_layers=32)
-        learn.fit(quotes, 1)
+        vectorizer = model.WordLanguageModelVectorizer(4)
+        learn = model.EmbeddedRecurrentLanguageModel(vectorizer)
+        learn.fit(quotes)
         save_to = os.path.join(os.environ['HOME'], '.machine-learning-fortune')
         with open(save_to, mode='wb') as save_file:
             pickle.dump(learn, save_file)

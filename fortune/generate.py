@@ -26,12 +26,10 @@ def execute(max_length=32):
     os.environ["CUDA_VISIBLE_DEVICES"] = ""
     dotfile = os.path.join(os.environ['HOME'], '.machine-learning-fortune')
     default = os.path.join(os.path.dirname(__file__), '.machine-learning-fortune')
-    print(dotfile, default)
     if os.path.exists(dotfile):
         model_path = dotfile
     else:
         model_path = default
-    print(model_path)
     with open(model_path, 'rb') as model_file:
         # get the model back
         model = pickle.load(model_file)
