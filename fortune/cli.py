@@ -9,8 +9,8 @@ from . import generate
 HELPSTRING = '''machine-learning-fortune
 
 Usage:
-    machine-learning-fortune [<seed_words>...]
     machine-learning-fortune train <quotes>
+    machine-learning-fortune generate [<seed_words>...]
 
 When run with no parameters, generate a new, random saying based on either the defaults
 or the model stored at ${HOME}/.machine-learning-fortune.
