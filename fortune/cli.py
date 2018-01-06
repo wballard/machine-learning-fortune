@@ -9,7 +9,7 @@ from . import generate
 HELPSTRING = '''machine-learning-fortune
 
 Usage:
-    machine-learning-fortune
+    machine-learning-fortune [<seed_words>...]
     machine-learning-fortune train <quotes>
 
 When run with no parameters, generate a new, random saying based on either the defaults
@@ -28,4 +28,4 @@ def execute():
     if arguments['train']:
         train.execute(arguments['<quotes>'])
     else:
-        generate.execute()
+        generate.execute(arguments['<seed_words>'])

@@ -7,12 +7,14 @@ import pickle
 import numpy as np
 
 
-def execute(max_length=32):
+def execute(seed_words=[], max_length=32):
     '''
     Generate a single quote.
     
     Parameters
     ----------
+    seed_words: list
+        A list of words to start off the generation.
     max_length: int
         A guard value to prevent looping forever.
 
@@ -33,8 +35,11 @@ def execute(max_length=32):
     with open(model_path, 'rb') as model_file:
         # get the model back
         model = pickle.load(model_file)
-        # pick a random starting word
-        seed = model.vectorizer.sequencer.inverse_vocabulary_[np.random.randint(0, model.vectorizer.unique_words)]
+        # pick a random starting word if needed
+        if len(seed_words) == 0:
+            seed = model.vectorizer.sequencer.inverse_vocabulary_[np.random.randint(0, model.vectorizer.unique_words)]
+        else:
+            seed = ' '.join(seed_words)
         # build up the result buffer here, adding on to our passed seed
         for i in range(0, max_length):
             # working on the right most context
